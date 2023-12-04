@@ -17,8 +17,8 @@ public class AliceString {
         System.out.println("Does this quote contain " + term + "? Result is: "  + hasTerm);
 
         //PART E
-        Integer index = quote.indexOf(term);
-        Integer length = term.length();
+        int index = quote.indexOf(term);
+        int length = term.length();
         System.out.println("Your search term first appears at index " + index + ". Your term is " + length + " characters long.");
         String modifiedQuote = quote.replace(term, "");
         System.out.println(modifiedQuote);
