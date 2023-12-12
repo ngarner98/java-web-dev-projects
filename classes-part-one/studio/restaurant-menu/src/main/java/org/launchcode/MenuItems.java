@@ -1,14 +1,17 @@
 package org.launchcode;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class MenuItems {
+    //fields
     private String name;
     private String description;
     private double price;
     private String category;
     private final LocalDate dateAdded;
 
+    //constructor
     public MenuItems(String name, String description, Double price, String category) {
         this.name = name;
         this.description = description;
@@ -44,5 +47,21 @@ public class MenuItems {
     }
     public LocalDate getDateAdded() {
         return dateAdded;
+    }
+
+
+    //if item is new
+    @Override
+    public String toString() {
+        String newText = isNew() ? " - New Item!" : "";
+        return name + newText + "\n" + description + " - $" + price;
+    }
+
+
+
+    boolean isNew() {
+        LocalDate today = LocalDate.now();
+        double daysBetween = getDateAdded().until(today, ChronoUnit.DAYS);
+        return daysBetween < 90;
     }
 }
