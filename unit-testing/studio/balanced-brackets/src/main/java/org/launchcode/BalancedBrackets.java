@@ -27,6 +27,9 @@ public class BalancedBrackets {
             } else if (ch == ']') {
                 brackets--;
             }
+            if (brackets < 0) {  // added this to pass inverted bracket tests
+                return false;
+            }
         }
         return brackets == 0;
     }
